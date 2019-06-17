@@ -1,0 +1,22 @@
+{
+  "name": "rc_frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ynx0/rc_frontend.git"
+  },
+  "author": "ynx0",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ynx0/rc_frontend/issues"
+  },
+  "homepage": "https://github.com/ynx0/rc_frontend#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
