@@ -19,6 +19,15 @@ const socket = io(`http://${IP}:${PORT}/${RC_CAR1_NS}`, {
 
 const feed_el = document.querySelector("#feed");
 
+const controlIDs = ["ctrl-forward", "ctrl-backward", "ctrl-left", "ctrl-right", "ctrl-stop"];
+
+function getControlsState() {
+    return {
+        fwSpeed: 60,
+        bwSpeed: 60,
+    };
+}
+
 socket.on('disconnect', (reason) => {
     console.log("Disconnected! because ", reason);
     socket.connect(`http://${IP}:${PORT}/${RC_CAR1_NS}`);
@@ -31,6 +40,15 @@ socket.on('image', (data) => {
     // console.log('ayo', image_b64);
     feed_el.setAttribute("src", "data:image/png;base64," + image_b64)
 });
+
+controlIDs.forEach((id) => {
+    let controlBtn = document.querySelector('#' + id);
+    controlBtn.onclick = () => {
+        console.log("You clicked control " + id);
+        socket.emit('control-event', {command: id, data: getControlsState()})
+    }
+});
+
 
 
 
